@@ -1,52 +1,53 @@
+#########################launch template ###############################################
+
 variable "dev" {
-  type =   string
-  description = "dev_lt"  
+  type        = string
+  description = "template name"
+  default     = "dev_lt"
 }
 variable "image_id" {
-  type = string
-  description = "launch_ami"  
+  type        = string
+  description = "launch_ami"
+  default     = "dev"
 }
 variable "instance_type" {
-  type = string
-  description = "instance"  
+  type        = string
+  description = "instance"
+  default     = "t2.micro"
 }
 
 variable "key_dev" {
-  type = string
-  default = "dev" 
+  type    = string
+  default = "dev"
 }
-variable "dev_sg_id" {
-  type = string
-  description = "dev_sg_id"  
-}
-#####################asg########################
+#################### asg ########################
 variable "max_size" {
-  default = "4"
-  description ="max size"
+  default = "1"
 }
 variable "min_size" {
-  default = "2"
-  description ="min size"
+  default = "1"
 }
 variable "desired_capacity" {
-   default = "2"
-  description ="description size"
+  default = "1"
 }
 variable "asg_health_check_type" {
-   default = "EC2"
-  description ="health check of instance"
+  default = "ec2"
+}
+variable "availability_zones" {
+  type    = list(string)
+  default = ["ap-south-1a", "ap-south-1b"]
 }
 variable "dev_asg" {
-  default = "dev"
-  description = "security_group name"
+  default = "jenkins_asg"
 }
+##########sacle up ############
 variable "dev_asg_scale_up" {
-  default = "dev_asg_scale_up"
+  default = "dev_sacle"
 }
 variable "adjustment_type" {
   default = "ChangeInCapacity"
 }
-variable "scaling_adjustment"{
+variable "scaling_adjustment" {
   default = "1"
 }
 variable "cooldown" {
@@ -66,7 +67,7 @@ variable "threshold_value" {
 }
 variable "subnets" {
   type    = list(string)
-  default = ["subnet-034f7c5244ce7e6b0", ""]
+  default = ["my_subnet"]
 }
 
 ####################### scale down ############
@@ -94,4 +95,6 @@ variable "cloudwatch_metric_name" {
 variable "ec2_threshold_value" {
   default = "5"
 }
+
+
 
