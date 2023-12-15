@@ -3,7 +3,7 @@
 image_id              = "ami-048fa6bb7c2573ce5"
 instance_type         = "t2.micro"
 key_dev           = "Ansible_key"
-dev_asg           = "sg-068b15a2949b41a59"
+dev_asg           = "DEV_ASG"
 max_size              = 5
 min_size              = 1
 desired_capacity      = 2
