@@ -27,7 +27,8 @@ resource "aws_autoscaling_group" "dev_asg" {
   metrics_granularity = "1Minute"
 
   launch_template {
-    id      = "lt-0c49e368994153125"
+    id      = aws_launch_template.dev.id
+    version = aws_launch_template.dev.latest_version
     # version = aws_launch_template.jenkins_template.latest_version 
   }
 }
@@ -83,4 +84,3 @@ resource "aws_cloudwatch_metric_alarm" "scale_down_alarm" {
   actions_enabled = true
   alarm_actions   = [aws_autoscaling_policy.scale_down.arn]
 }
-
