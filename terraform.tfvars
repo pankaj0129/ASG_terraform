@@ -26,5 +26,3 @@ dev_policy_type        = "SimpleScaling"
 asg-scale-down-alarm   = "dev_asg_scale_up"
 cloudwatch_metric_name = "CPUUtilization"
 ec2_threshold_value    = "5"
-
-
