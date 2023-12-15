@@ -1,6 +1,6 @@
 
 module "ASG" {
-  source = "./module/ASG"
+  source = "git::https://github.com/pankaj0129/ASG_terraform.git?ref=ASG_module"
   dev                    = var.dev
   image_id                   = var.image_id
   instance_type              = var.instance_type
