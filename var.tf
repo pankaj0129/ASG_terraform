@@ -66,7 +66,7 @@ variable "threshold_value" {
 }
 variable "subnets" {
   type    = list(string)
-  default = ["subnet-034f7c5244ce7e6b0", ""]
+  default = ["subnet-034f7c5244ce7e6b0"]
 }
 
 ####################### scale down ############
@@ -94,4 +94,9 @@ variable "cloudwatch_metric_name" {
 variable "ec2_threshold_value" {
   default = "5"
 }
-
+# Additional variable for launch template
+variable "launch_template_name" {
+  type        = string
+  description = "Name of the launch template"
+  default     = "dev_lt"
+}
