@@ -30,5 +30,3 @@ module "ASG" {
   ec2_threshold_value        = var.ec2_threshold_value
 
 }
-
-
