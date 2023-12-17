@@ -1,4 +1,4 @@
-// src/vars/credentialScanningPipeline.groovy
+// credentialScanningPipeline.groovy
 def call() {
     stage('Credential-scanning') {
         steps {
