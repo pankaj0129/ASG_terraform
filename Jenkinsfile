@@ -4,56 +4,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    checkout scm
-                }
-            }
-        }
-
-        stage('Credential Scanning') {
-            steps {
-                script {
-                    credentialScanning()
-                }
-            }
-        }
-
-        stage('Initialization') {
-            steps {
-                script {
-                    initialization()
-                }
-            }
-        }
-
-        stage('Validation & Security') {
-            parallel {
-                stage('Validation') {
-                    steps {
-                        script {
-                            validationSecurity()
-                        }
-                    }
-                }
-
-                stage('Infra Cost') {
-                    steps {
-                        script {
-                            infraCost()
-                        }
-                    }
-                }
-            }
-        }
-
-        stage('Terraform Plan') {
-            steps {
-                script {
-                    terraformPlan()
-                }
-            }
-        }
+        checkoutPipeline()
+        credentialScanningPipeline()
+        initializationPipeline()
+        validationSecurityPipeline()
+        infraCostPipeline()
+        terraformPlanPipeline()
     }
 }
