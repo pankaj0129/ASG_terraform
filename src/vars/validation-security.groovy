@@ -1,4 +1,4 @@
-// src/vars/validationSecurityPipeline.groovy
+// validationSecurityPipeline.groovy
 def call() {
     stage('Validation & Security Scanning') {
         parallel {
