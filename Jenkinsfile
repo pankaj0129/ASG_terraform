@@ -6,37 +6,37 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkoutPipeline()
+                checkout()
             }
         }
 
         stage('Credential Scanning') {
             steps {
-                credentialScanningPipeline()
+                credentialScanning()
             }
         }
 
         stage('Initialization') {
             steps {
-                initializationPipeline()
+                initialization()
             }
         }
 
         stage('Validation & Security Scanning') {
             steps {
-                validationSecurityPipeline()
+                validationSecurity()
             }
         }
 
         stage('Infra Cost') {
             steps {
-                infraCostPipeline()
+                infraCost()
             }
         }
 
         stage('Terraform Plan') {
             steps {
-                terraformPlanPipeline()
+                terraformPlan()
             }
         }
     }
