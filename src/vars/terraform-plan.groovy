@@ -1,4 +1,4 @@
-// src/vars/terraformPlanPipeline.groovy
+// terraformPlanPipeline.groovy
 def call() {
     stage('Terraform Plan') {
         steps {
