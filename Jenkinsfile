@@ -1,4 +1,4 @@
-@Library('src') _
+@Library('src@root_module') _
 
 pipeline {
     agent any
