@@ -4,11 +4,56 @@ pipeline {
     agent any
 
     stages {
-        checkout()
-        credentialScanning()
-        initialization()
-        validationSecurity()
-        infraCost()
-        terraformPlan()
+        stage('Checkout') {
+            steps {
+                script {
+                    checkout()
+                }
+            }
+        }
+
+        stage('Credential Scanning') {
+            steps {
+                script {
+                    credentialScanning()
+                }
+            }
+        }
+
+        stage('Initialization') {
+            steps {
+                script {
+                    initialization()
+                }
+            }
+        }
+
+        stage('Validation & Security') {
+            parallel {
+                stage('Validation') {
+                    steps {
+                        script {
+                            validationSecurity()
+                        }
+                    }
+                }
+
+                stage('Infra Cost') {
+                    steps {
+                        script {
+                            infraCost()
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    terraformPlan()
+                }
+            }
+        }
     }
 }
