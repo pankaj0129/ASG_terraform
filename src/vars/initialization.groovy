@@ -1,4 +1,5 @@
-// initializationPipeline.groovy
+// File: src/vars/initialization.groovy
+
 def call() {
     stage('Initialization') {
         steps {
@@ -6,4 +7,5 @@ def call() {
         }
     }
 }
+
 
