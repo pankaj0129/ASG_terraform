@@ -1,4 +1,3 @@
-// checkoutPipeline.groovy
 def call() {
     stage('git checkout') {
         steps {
