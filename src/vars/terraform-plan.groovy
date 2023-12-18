@@ -1,7 +1,7 @@
 // File: src/vars/terraform-plan.groovy
 
 def call() {
-    stage('Terraform Plan') {
+    stage('terraform-Plan') {
         steps {
             sh 'terraform plan'
         }
