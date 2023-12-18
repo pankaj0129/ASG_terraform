@@ -1,7 +1,7 @@
 // File: src/vars/validation-security.groovy
 
 def call() {
-    stage('Validation & Security Scanning') {
+    stage('validation-security') {
         parallel {
             stage('Validation') {
                 steps {
