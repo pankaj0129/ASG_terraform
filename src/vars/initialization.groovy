@@ -1,7 +1,7 @@
 // File: src/vars/initialization.groovy
 
 def call() {
-    stage('Initialization') {
+    stage('initialization') {
         steps {
             sh 'terraform init'
         }
