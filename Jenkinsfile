@@ -1,44 +1,44 @@
-@Library('src') _
+// @Library('src') _
 
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-                checkout()
-            }
-        }
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//                 checkout()
+//             }
+//         }
 
-        stage('Credential Scanning') {
-            steps {
-                credentialScanning()
-            }
-        }
+//         stage('Credential Scanning') {
+//             steps {
+//                 credentialScanning()
+//             }
+//         }
 
-        stage('Initialization') {
-            steps {
-                initialization()
-            }
-        }
+//         stage('Initialization') {
+//             steps {
+//                 initialization()
+//             }
+//         }
 
-        stage('Validation & Security Scanning') {
-            steps {
-                validationSecurity()
-            }
-        }
+//         stage('Validation & Security Scanning') {
+//             steps {
+//                 validationSecurity()
+//             }
+//         }
 
-        stage('Infra Cost') {
-            steps {
-                infraCost()
-            }
-        }
+//         stage('Infra Cost') {
+//             steps {
+//                 infraCost()
+//             }
+//         }
 
-        stage('Terraform Plan') {
-            steps {
-                terraformPlan()
-            }
-        }
-    }
-}
+//         stage('Terraform Plan') {
+//             steps {
+//                 terraformPlan()
+//             }
+//         }
+//     }
+// }
