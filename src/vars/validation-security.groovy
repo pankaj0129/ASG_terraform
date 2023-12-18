@@ -1,4 +1,5 @@
-// validationSecurityPipeline.groovy
+// File: src/vars/validation-security.groovy
+
 def call() {
     stage('Validation & Security Scanning') {
         parallel {
@@ -9,6 +10,7 @@ def call() {
             }
             stage('Static Code Analysis') {
                 steps {
+                    // Run tflint and save the output to a file
                     sh 'tflint --format default | tee tflint_report.json'
                 }
             }
@@ -22,4 +24,5 @@ def call() {
         }
     }
 }
+
 
