@@ -1,4 +1,5 @@
-// infraCostPipeline.groovy
+// File: src/vars/infra-cost.groovy
+
 def call() {
     stage('Infra Cost') {
         steps {
