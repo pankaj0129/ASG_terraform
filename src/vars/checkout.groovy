@@ -6,7 +6,7 @@ def call() {
             branch: 'root_module',
             url: 'https://github.com/pankaj0129/ASG_terraform.git'
         ]
-        checkout
+        checkout scm
     }
 }
 
