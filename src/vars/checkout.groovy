@@ -1,7 +1,10 @@
-def call() {
+// checkoutPipeline.groovy
+def call(Map scm) {
     stage('git checkout') {
         steps {
-            git branch: 'root_module', url: 'https://github.com/pankaj0129/ASG_terraform.git'
+            script {
+                checkout([$class: 'GitSCM', branches: [[name: scm.branch]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: scm.url]]])
+            }
         }
     }
 }
