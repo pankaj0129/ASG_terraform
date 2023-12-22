@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 
 // Define functions for each stage
 def gitCheckout(branch, url) {
-    git branch: branch, url: url
+    gitCheckout(branch: 'root_module', url: 'https://github.com/pankaj0129/ASG_terraform.git')
 }
 
 def checkCredentials() {
