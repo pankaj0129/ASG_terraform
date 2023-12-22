@@ -1,4 +1,4 @@
-@Library('terraform-ci-checks@root_module') _
+@Library('terraform-ci-checks@src') _
 
 pipeline {
     agent any
