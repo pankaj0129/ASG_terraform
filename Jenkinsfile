@@ -1,44 +1,54 @@
-// @Library('src') _
+@Library('terraform-ci-checks') _
 
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Checkout') {
-//             steps {
-//                 checkout scm
-//                 checkout()
-//             }
-//         }
-
-//         stage('Credential Scanning') {
-//             steps {
-//                 credentialScanning()
-//             }
-//         }
-
-//         stage('Initialization') {
-//             steps {
-//                 initialization()
-//             }
-//         }
-
-//         stage('Validation & Security Scanning') {
-//             steps {
-//                 validationSecurity()
-//             }
-//         }
-
-//         stage('Infra Cost') {
-//             steps {
-//                 infraCost()
-//             }
-//         }
-
-//         stage('Terraform Plan') {
-//             steps {
-//                 terraformPlan()
-//             }
-//         }
-//     }
-// }
+pipeline {
+    agent any
+    environment {
+        PATH = "/var/lib/jenkins/.local/bin:$PATH"
+    }
+    stages {
+        stage('git checkout') {
+            steps {
+                gitCheckout(branch: 'root_module', url: 'https://github.com/pankaj0129/ASG_terraform.git')
+            }
+        }
+        stage('Credential-scanning') {
+            steps {
+                checkCredentials()
+            }
+        }
+        stage('Initialization') {
+            steps {
+                initializeTerraform()
+            }
+        }
+        stage('Validation & Security Scanning') {
+            parallel {
+                stage('Validation') {
+                    steps {
+                        runTerraformValidation()
+                    }
+                }
+                stage('Static Code Analysis') {
+                    steps {
+                        runStaticCodeAnalysis()
+                    }
+                }
+                stage('Security and Compliance') {
+                    steps {
+                        runSecurityComplianceScan()
+                    }
+                }
+            }
+        }
+        stage('Infra Cost') {
+            steps {
+                estimateInfraCost()
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                runTerraformPlan()
+            }
+        }
+    }
+}
