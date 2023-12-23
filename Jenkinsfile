@@ -10,7 +10,7 @@ pipeline {
                     // Import the CommonFuncs class from the shared library
                     // def commonFuncs = new org.common.CommonFuncs()
                     // Call the initialize function
-                   this.call()
+                   common.initialize()
                 }
             }
         }
