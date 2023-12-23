@@ -7,11 +7,14 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    common.initialize()
+                    // Import the CommonFuncs class from the shared library
+                    def commonFuncs = new org.common.CommonFuncs()
+
+                    // Call the initialize function
+                    commonFuncs.initialize()
                 }
             }
         }
         // Add more stages as needed
     }
 }
-
