@@ -1,4 +1,4 @@
-package org.common
+package org
 
 class CommonFuncs {
     def sayHi() {
