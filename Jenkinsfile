@@ -8,8 +8,7 @@ pipeline {
             steps {
                 script {
                     // Import the CommonFuncs class from the shared library
-                    def commonFuncs = new org.common.CommonFuncs()
-
+                    // def commonFuncs = new org.common.CommonFuncs()
                     // Call the initialize function
                     commonFuncs.initialize()
                 }
