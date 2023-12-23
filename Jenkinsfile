@@ -1,4 +1,6 @@
 @Library('global-pipeline') _
+import jenkins.model.*
+jenkins = Jenkins.instance
 
 pipeline {
     agent any 
@@ -7,8 +9,6 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    import jenkins.model.*
-                    jenkins = Jenkins.instance
                     // Import the CommonFuncs class from the shared library
                     // def commonFuncs = new org.common.CommonFuncs()
                     // Call the initialize function
