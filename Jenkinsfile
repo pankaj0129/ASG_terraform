@@ -1,4 +1,4 @@
-@Library('terraform-ci-checks') _
+@Library('global-pipeline') _
 pipeline {
     agent any
     stages {
