@@ -1,14 +1,17 @@
 @Library('global-pipeline') _
+
 pipeline {
-    agent any
+    agent any 
+
     stages {
-        stage('Example') {
+        stage('Terraform Init') {
             steps {
                 script {
-                    // Use the functions from the shared library
-                    testSrc()
+                    common.initialize()
                 }
             }
         }
+        // Add more stages as needed
     }
 }
+
