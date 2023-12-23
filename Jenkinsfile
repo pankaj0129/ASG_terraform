@@ -1,6 +1,4 @@
 @Library('global-pipeline') _
-import jenkins.model.*
-jenkins = Jenkins.instance
 
 pipeline {
     agent any 
@@ -12,7 +10,7 @@ pipeline {
                     // Import the CommonFuncs class from the shared library
                     // def commonFuncs = new org.common.CommonFuncs()
                     // Call the initialize function
-                    Common.initialize()
+                    call()
                 }
             }
         }
